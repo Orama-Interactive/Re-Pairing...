@@ -1,0 +1,323 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Graphics/Player/Antena/Antena_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Graphics/Background/back_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Background/back_0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/Background/back_2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Graphics/Player/Wire Movement/Body_1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Graphics/Player/Antena/Antena_3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/Player/Antena/Antena_2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Graphics/Player/Wire Movement/Body_2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Graphics/Player/Wire Movement/Body_3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Graphics/Player/Wheel.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink2_2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink2_1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Graphics/Player/Blink/Blink2_3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Graphics/Player/Beam.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Information Bar.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Assets/Graphics/Player/Restrained View.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Graphics/rain.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Fonts/VT323-Regular Medium-ish.tres" type="DynamicFont" id=22]
+[ext_resource path="res://Assets/Graphics/UI/Screen2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Fonts/VT323-Regular BIG.tres" type="DynamicFont" id=24]
+[ext_resource path="res://Assets/Graphics/UI/Button2.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Graphics/UI/Button2Pressed.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Fonts/VT323-Regular font.tres" type="DynamicFont" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "reverse",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), null, null, ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), null, null, ExtResource( 17 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "onlylefteye",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 14.0
+height = 80.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+
+[sub_resource type="StyleBoxFlat" id=11]
+
+[sub_resource type="StyleBoxFlat" id=12]
+
+[sub_resource type="StyleBoxFlat" id=13]
+
+[sub_resource type="StyleBoxFlat" id=14]
+
+[sub_resource type="Theme" id=15]
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = SubResource( 5 )
+HScrollBar/styles/grabber_highlight = SubResource( 6 )
+HScrollBar/styles/grabber_pressed = SubResource( 7 )
+HScrollBar/styles/scroll = SubResource( 8 )
+HScrollBar/styles/scroll_focus = SubResource( 9 )
+TextEdit/colors/background_color = Color( 0, 0, 0, 0 )
+TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
+TextEdit/colors/breakpoint_color = Color( 0.8, 0.8, 0.4, 0.2 )
+TextEdit/colors/caret_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/code_folding_color = Color( 0.8, 0.8, 0.8, 0.8 )
+TextEdit/colors/completion_background_color = Color( 0.168627, 0.160784, 0.2, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.87, 0.87, 0.87, 0.13 )
+TextEdit/colors/completion_font_color = Color( 0.67, 0.67, 0.67, 1 )
+TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/completion_selected_color = Color( 0.26, 0.26, 0.27, 1 )
+TextEdit/colors/current_line_color = Color( 0.25, 0.25, 0.26, 0.8 )
+TextEdit/colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+TextEdit/colors/font_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.88, 0.88, 0.88, 0.5 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0.4, 0.64, 0.81, 1 )
+TextEdit/colors/line_number_color = Color( 0.67, 0.67, 0.67, 0.4 )
+TextEdit/colors/mark_color = Color( 1, 0.4, 0.4, 0.4 )
+TextEdit/colors/member_variable_color = Color( 0.9, 0.31, 0.35, 1 )
+TextEdit/colors/number_color = Color( 0.92, 0.58, 0.2, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0.67, 0.78, 0.67, 0.6 )
+TextEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+TextEdit/colors/symbol_color = Color( 0.94, 0.94, 0.94, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0.8, 0.9, 0.9, 0.15 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 3
+TextEdit/constants/line_spacing = 8
+TextEdit/fonts/font = null
+TextEdit/icons/ = null
+TextEdit/icons/fold = null
+TextEdit/icons/folded = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/completion = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = null
+TextEdit/styles/read_only = null
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 10 )
+VScrollBar/styles/grabber_highlight = SubResource( 11 )
+VScrollBar/styles/grabber_pressed = SubResource( 12 )
+VScrollBar/styles/scroll = SubResource( 13 )
+VScrollBar/styles/scroll_focus = SubResource( 14 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Antena_1" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -38 )
+frames = SubResource( 1 )
+
+[node name="Blink1" type="AnimatedSprite" parent="Antena_1"]
+position = Vector2( 0, 4.289 )
+frames = SubResource( 2 )
+animation = "onlylefteye"
+frame = 2
+speed_scale = 2.0
+playing = true
+
+[node name="Body_1" type="AnimatedSprite" parent="Antena_1"]
+position = Vector2( 0, 40.226 )
+frames = SubResource( 3 )
+speed_scale = 0.3
+playing = true
+
+[node name="Wheel" type="Sprite" parent="Antena_1"]
+visible = false
+position = Vector2( 0, 77.774 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -153 )
+current = true
+
+[node name="Tween" type="Tween" parent="Camera2D"]
+
+[node name="LabelNode" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+
+[node name="TutorialLabel" type="Label" parent="Camera2D/LabelNode"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -12.5
+margin_bottom = 12.5
+custom_fonts/font = ExtResource( 22 )
+text = "Click the RIGHT MOUSE BUTTON to activate the attractor beam."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialLabel2" type="Label" parent="Camera2D/LabelNode"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -12.5
+margin_bottom = 12.5
+custom_fonts/font = ExtResource( 22 )
+text = "Press LEFT MOUSE BUTTON to investigate"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Information Bar" parent="Camera2D/LabelNode" instance=ExtResource( 19 )]
+position = Vector2( 466.406, 268.705 )
+z_index = 100
+
+[node name="RepairWords" type="Sprite" parent="Camera2D/LabelNode"]
+visible = false
+position = Vector2( 470, 296.164 )
+z_index = 101
+texture = ExtResource( 23 )
+
+[node name="RepairTextEdit" type="TextEdit" parent="Camera2D/LabelNode/RepairWords"]
+margin_left = -160.0
+margin_top = -20.0
+margin_right = 120.0
+margin_bottom = 33.0
+theme = SubResource( 15 )
+custom_fonts/font = ExtResource( 24 )
+custom_constants/line_spacing = -6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptButton" type="TextureButton" parent="Camera2D/LabelNode/RepairWords"]
+margin_left = 140.607
+margin_top = 27.2291
+margin_right = 171.607
+margin_bottom = 58.2291
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera2D/LabelNode/RepairWords"]
+margin_left = -185.0
+margin_top = 80.0
+margin_right = 176.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 27 )
+text = "sos. to any potential suRvivors. this is not thE end.
+ there still is hoPe. follow the source
+ of the trAnsmissIon. oveR."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Beam" type="Sprite" parent="."]
+visible = false
+position = Vector2( 10, -48 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 18 )
+centered = false
+offset = Vector2( 0, -20 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Beam"]
+position = Vector2( 0.232681, -0.0280266 )
+enabled = true
+cast_to = Vector2( 140, 0 )
+collision_mask = 6
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 1920, 540 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 540 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 5000, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 540 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -410 )
+amount = 400
+lifetime = 6.0
+texture = ExtResource( 21 )
+emission_shape = 2
+emission_rect_extents = Vector2( 960, 1 )
+gravity = Vector2( -45, 98 )
+
+[node name="Restrained View" type="Sprite" parent="."]
+z_index = 2
+texture = ExtResource( 20 )
+offset = Vector2( 0, -153 )
+[connection signal="frame_changed" from="Antena_1" to="." method="_on_Antena_1_frame_changed"]
+[connection signal="text_changed" from="Camera2D/LabelNode/RepairWords/RepairTextEdit" to="." method="_on_RepairTextEdit_text_changed"]
+[connection signal="pressed" from="Camera2D/LabelNode/RepairWords/AcceptButton" to="." method="_on_AcceptButton_pressed"]

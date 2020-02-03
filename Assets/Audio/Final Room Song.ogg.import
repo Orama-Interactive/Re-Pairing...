@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Final Room Song.ogg-b08424ecd9ffe06c3b370a4d51eaee05.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Final Room Song.ogg"
+dest_files=[ "res://.import/Final Room Song.ogg-b08424ecd9ffe06c3b370a4d51eaee05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

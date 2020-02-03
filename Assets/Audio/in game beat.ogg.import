@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/in game beat.ogg-b1248cf0d2f523f579268de3493a6ec0.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/in game beat.ogg"
+dest_files=[ "res://.import/in game beat.ogg-b1248cf0d2f523f579268de3493a6ec0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

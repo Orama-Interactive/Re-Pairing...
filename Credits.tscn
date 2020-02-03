@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Graphics/illustration gredits.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Credits.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/VT323-Regular BIG.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Audio/Credits Song.ogg" type="AudioStream" id=4]
+
+[node name="Credits" type="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -838.0
+margin_top = 1194.15
+margin_bottom = 40114.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "Contributions:
+
+The game was created as part of the 2020 Global Game Jam by our team \"Orama Interactive\"
+
+Programming:
+Manolis Papadeas (Overloaded)
+
+Art:
+John Nikitakis (Erevoid)
+Lena Louloudaki (Soliscital)
+Orion Mpourazanis (Odnyrion)
+
+Level Design: 
+John Nikitakis 
+
+Music/Sound Composing:
+Panagiotis Mpraikidis (Hollow)
+
+Font: VT323 (Free to use by Google Fonts)
+
+Special thanks to the developers who participated in our choir (for the Preaching to the Choir Diversifier):
+Vasilis Galliakis
+Bournellis Ippokratis
+John Nikitakis
+Lena Louloudaki
+Panagiotis Mpraikidis
+Dimitris Angelidis
+Renia Papathanasiou
+Christina Karadimitriou
+Panos Floros
+Manolis Papadeas
+
+And thanks to all of you who tried out our game!"
+text = "Contributions:
+
+The game was created as part of the 2020 Global Game Jam by our team \"Orama Interactive\"
+
+Programming:
+Manolis Papadeas (Overloaded)
+
+Art:
+John Nikitakis (Erevoid)
+Lena Louloudaki (Soliscital)
+Orion Mpourazanis (Odnyrion)
+
+Level Design: 
+John Nikitakis 
+
+Music/Sound Composing:
+Panagiotis Mpraikidis (Hollow)
+
+Font: VT323 (Free to use by Google Fonts)
+
+Special thanks to the developers who participated in our choir (for the Preaching to the Choir Diversifier):
+Vasilis Galliakis
+Bournellis Ippokratis
+John Nikitakis
+Lena Louloudaki
+Panagiotis Mpraikidis
+Dimitris Angelidis
+Renia Papathanasiou
+Christina Karadimitriou
+Panos Floros
+Manolis Papadeas
+
+And thanks to all of you who tried out our game!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 408.0
+margin_top = -84.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Space to skip"

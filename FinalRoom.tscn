@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Graphics/room.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/VT323-Regular Medium-ish.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/FinalRoom.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Audio/end lines.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_5.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_7.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Graphics/last dude animation/frame_6.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Audio/Final Room Song.ogg" type="AudioStream" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Heart",
+"speed": 5.0
+} ]
+
+[node name="FinalRoom" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 435.608, 446.715 )
+script = null
+
+[node name="Blink1" parent="Player/Antena_1" index="0"]
+animation = "default"
+frame = 4
+
+[node name="Wheel" parent="Player/Antena_1" index="2"]
+visible = true
+
+[node name="Camera2D" parent="Player" index="2"]
+position = Vector2( 43, -25 )
+
+[node name="Information Bar" parent="Player/Camera2D/LabelNode" index="2"]
+visible = false
+
+[node name="ParallaxLayer" parent="Player/ParallaxBackground" index="0"]
+visible = false
+
+[node name="ParallaxLayer2" parent="Player/ParallaxBackground" index="1"]
+visible = false
+
+[node name="ParallaxLayer3" parent="Player/ParallaxBackground" index="2"]
+visible = false
+
+[node name="CPUParticles2D" parent="Player" index="5"]
+visible = false
+
+[node name="Restrained View" parent="Player" index="6"]
+visible = false
+
+[node name="LastDude" type="AnimatedSprite" parent="."]
+position = Vector2( 644.964, 421.551 )
+frames = SubResource( 1 )
+speed_scale = 0.4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -400.0
+margin_top = 82.0
+margin_right = 400.0
+margin_bottom = 282.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/line_separation = 12
+visible_characters = 0
+text = "You? A robot deciphered my code? Are you an intelligent one? Heh. The prophecy never clarified that. It doesn’t matter."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharaTimer" type="Timer" parent="."]
+wait_time = 0.09
+autostart = true
+
+[node name="LineTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+autoplay = true
+[connection signal="animation_finished" from="LastDude" to="." method="_on_LastDude_animation_finished"]
+[connection signal="timeout" from="CharaTimer" to="." method="_on_CharaTimer_timeout"]
+[connection signal="timeout" from="LineTimer" to="." method="_on_LineTimer_timeout"]
+
+[editable path="Player"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Magnetizable.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Graphics/crate.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 14 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1, 3 )
+
+[node name="Magnetizable" type="RigidBody2D" groups=[
+"Magnetizable",
+]]
+collision_layer = 3
+gravity_scale = 3.0
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="Crate" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -13.3322, -17.0784 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 13.3322, -16.9682 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Magnetizable_body_entered"]

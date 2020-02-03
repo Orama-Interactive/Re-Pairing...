@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Graphics/UI/Screen.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/VT323-Regular font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Information Bar.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Graphics/UI/ScreenButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/UI/ScreenButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/VT323-Regular Medium-ish.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Audio/dialog box sound.ogg" type="AudioStream" id=7]
+
+[node name="Information Bar" type="Sprite"]
+z_index = 999
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = -170.0
+margin_top = -155.5
+margin_right = -235.0
+margin_bottom = -141.5
+custom_fonts/font = ExtResource( 6 )
+text = "RECORDING 001 
+DEVELOPER'S NOTE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -168.0
+margin_top = -86.0
+margin_right = -242.0
+margin_bottom = -331.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "“The last features were added but I never had the chance to test it myself. This little guy has the ability to move objects, the gold metal ones, with a custom magnet. I'm quite confident that he is the first one to reach singularity. But… 
+
+I can hear the sirens. Is this really the end..? I’m sorry buddy… You never had the chance to live. This world is beyond repair.” "
+visible_characters = 0
+text = "“The last features were added but I never had the chance to test it myself. This little guy has the ability to move objects, the gold metal ones, with a custom magnet. I'm quite confident that he is the first one to reach singularity. But… 
+
+I can hear the sirens. Is this really the end..? I’m sorry buddy… You never had the chance to live. This world is beyond repair.” "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="DismissButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -352.286
+margin_top = -321.69
+margin_right = -246.286
+margin_bottom = -290.69
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DismissButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -12.5
+margin_right = 35.0
+margin_bottom = 12.5
+custom_fonts/font = ExtResource( 6 )
+text = "DISMISS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="DismissButton" to="." method="_on_DismissButton_pressed"]

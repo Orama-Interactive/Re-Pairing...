@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bridge going down.ogg-7168719ebe750cf478f26a07f02b36ac.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Bridge going down.ogg"
+dest_files=[ "res://.import/Bridge going down.ogg-7168719ebe750cf478f26a07f02b36ac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
