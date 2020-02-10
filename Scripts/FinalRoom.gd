@@ -23,7 +23,7 @@ func _on_LineTimer_timeout():
 		$LastDude.playing = true
 	if dialogue_state == 5:
 		get_tree().change_scene("res://Credits.tscn")
-		
+
 	rich_text_label.visible_characters = 0
 	dialogue_state += 1
 

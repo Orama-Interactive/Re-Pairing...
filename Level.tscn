@@ -76,14 +76,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 39 ), ExtResource( 42 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ],
 "loop": true,
 "name": "Flying",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -588,7 +588,7 @@ shape = SubResource( 5 )
 position = Vector2( 3744.94, 201.877 )
 z_index = -1
 frames = SubResource( 6 )
-frame = 1
+frame = 5
 speed_scale = 0.6
 playing = true
 script = ExtResource( 38 )
@@ -670,7 +670,7 @@ stream = ExtResource( 44 )
 
 [node name="AudioStreamRain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )
-volume_db = -36.706
+volume_db = -36.0
 
 [node name="AudioStreamTape1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )

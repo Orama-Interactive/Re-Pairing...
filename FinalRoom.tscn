@@ -38,13 +38,13 @@ script = null
 
 [node name="Blink1" parent="Player/Antena_1" index="0"]
 animation = "default"
-frame = 4
+frame = 18
 
 [node name="Wheel" parent="Player/Antena_1" index="2"]
 visible = true
 
 [node name="Camera2D" parent="Player" index="2"]
-position = Vector2( 43, -25 )
+position = Vector2( 44, -24 )
 
 [node name="Information Bar" parent="Player/Camera2D/LabelNode" index="2"]
 visible = false
