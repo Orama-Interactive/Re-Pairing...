@@ -40,9 +40,9 @@ func _input(event):
 			beam.visible = shows_beam
 		else:
 			head.animation = "default"
-			
+
 		head.playing = true
-		
+
 		if tutorial_state == 1:
 			tutorial_label.visible = true
 			tutorial_label.text = "You can move it around with your mouse and use the LEFT MOUSE BUTTON\nto examine an object and pick it up"
@@ -52,31 +52,34 @@ func _input(event):
 		tutorial_label.visible = true
 		tutorial_label.text = "Press A and D (or the arrow keys) to move left and right"
 		tutorial_state += 1
-	
-#	if event is InputEventKey:
-#		if event.is_action("ui_down"):
-#			ray_direction += ray_speed
-#		if event.is_action("ui_up"):
-#			ray_direction -= ray_speed
-#			if ray_direction < 0:
-#				ray_direction = 359
-#			elif ray_direction > 360:
-#				ray_direction = 0
 
-	if event is InputEventMouse:
-		var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+	if event is InputEventKey:
+		if event.is_action("ui_down"):
+			ray_direction += ray_speed
+		if event.is_action("ui_up"):
+			ray_direction -= ray_speed
+
+	if event is InputEventMouseMotion:
+		var mouse_dir = (get_global_mouse_position() - beam.global_position).normalized()
 # warning-ignore:narrowing_conversion
 		ray_direction = rad2deg(mouse_dir.angle())
-	
+
+	if ray_direction < 0:
+		ray_direction = 360 + ray_direction
+	elif ray_direction > 360:
+		ray_direction = 0
+
 	if ray_direction > 55 && ray_direction < 125:
 		ray_direction = 55
 		if event.is_action("ui_up"):
 			ray_direction = 125
-	
+
 	beam.rotation_degrees = ray_direction
 
+func _process(delta):
+	camera.global_position.y = 160 # Lock camera y
+
 func _physics_process(delta):
-	camera.global_position.y = 160
 	if no_input:
 		return
 	velocity.y += delta * GRAVITY
@@ -95,21 +98,21 @@ func _physics_process(delta):
 				tutorial_state += 1
 		else:
 			velocity.x = 0
-	
+
 		velocity = move_and_slide(velocity, Vector2(0, -1), false, 4, PI/4, false)
 		if abs(velocity.x) > 0.1:
 			wheel.rotation_degrees += 20
-	
+
 	if can_jump:
 		if Input.is_action_just_pressed("jump") && is_on_floor():
 			velocity.y = JUMP_POWER
 			if tutorial_state == 5:
 				tutorial_label.visible = false
 				tutorial_state += 1
-		
+
 		if velocity.y < JUMP_POWER:
 			velocity.y = JUMP_POWER
-	
+
 # warning-ignore:return_value_discarded
 	camera_tween.interpolate_property(camera, "offset", camera.offset, Vector2(velocity.x * 2, -153), CAMERA_DURATION, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 # warning-ignore:return_value_discarded
@@ -119,9 +122,8 @@ func _physics_process(delta):
 	var magnetizable = magnet_raycast.get_collider()
 	if magnetizable:
 		if magnetizable.name == "Eye" || magnetizable.get_parent().name == "Birb" || magnetizable.get_parent().name == "Flower" || magnetizable.get_parent().name == "Board":
-			print("s")
 			$Camera2D/LabelNode/TutorialLabel2.visible = true
-		
+
 		if Input.is_action_pressed("grab"):
 			if magnetizable.get_parent().name == "Birb":
 				magnetizable.get_parent().timer.wait_time = 2
@@ -142,7 +144,7 @@ func _physics_process(delta):
 			elif magnetizable.get_parent().name == "Board":
 				no_input = true
 				repair_words.visible = true
-			
+
 			if magnetizable.is_in_group("Magnetizable"):
 				if magnetizable.name == "Wheel":
 					can_walk = true
@@ -190,19 +192,18 @@ func _on_SOSTrigger_body_entered(body):
 		information_bar.rich_text_label.visible_characters = 0
 		information_bar.rich_text_label.bbcode_text = "sos. to any potential suRvivors. this is not thE end. there still is hoPe. follow the source of the trAnsmissIon. oveR."
 		$"../AudioStreamInGameBeat".volume_db = -5
-		$"../AudioStreamRain".volume_db = -5
 		$"../SOSTrigger/AudioStreamTape2".play()
 
 func _on_AcceptButton_pressed():
 	var textedit : TextEdit = $"Camera2D/LabelNode/RepairWords/RepairTextEdit"
 	if textedit.text.to_upper() == "REPAIR":
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://FinalRoom.tscn")
 	else:
 		textedit.text = ""
 
 func _on_AudioStreamTape2_finished():
 	$"../AudioStreamInGameBeat".volume_db = 0
-	$"../AudioStreamRain".volume_db = 0
 
 
 func _on_RepairTextEdit_text_changed():
