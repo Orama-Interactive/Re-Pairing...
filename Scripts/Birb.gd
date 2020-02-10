@@ -7,7 +7,7 @@ var moving := false
 
 func _process(delta):
 	if moving:
-		position -= Vector2.ONE
+		position -= Vector2.ONE * 100 * delta
 
 func _on_Area2D_body_exited(body):
 	print(body.name)
